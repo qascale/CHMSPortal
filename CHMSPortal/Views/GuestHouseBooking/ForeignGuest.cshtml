@@ -1,0 +1,235 @@
+﻿
+@{
+    ViewBag.Title = "ForeignGuest";
+}
+
+<h3>
+    Foreign Guest
+    <small>This form fill only Foreign Guest</small>
+</h3>
+
+<div class="panel panel-default">
+    @*<div class="panel-heading">Form elements</div>*@
+    <div class="panel-body">
+        <form method="get" action="/" class="form-horizontal">
+            <fieldset>
+                <legend>Booking Detail</legend>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Arrived from<span>*</span></label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" />
+                    </div>
+                    <label class="col-sm-3 control-label">Date of Arrival in India<span>*</span></label>
+                    <div class="col-sm-3">
+                        <input type="date" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-top:20px">
+                    <label class="col-sm-3 control-label">Date of arrival in Hotel<span>*</span></label>
+                    <div class="col-sm-3">
+                        <input type="date" class="form-control" />
+                    </div>
+                    <label class="col-sm-3 control-label">Time of Arrival<span>*</span></label>
+                    <div class="col-sm-3">
+                        <input type="date" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-top:20px">
+                    <label class="col-sm-3 control-label">Intended duration of stay(In days)<span>*</span></label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" />
+                    </div>
+                    <label class="col-sm-3 control-label">Whether employed in India<span>*</span></label>
+                    <div class="col-sm-3">
+                        <input type="checkbox" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group" style="margin-top:20px">
+                    <label class="col-sm-3 control-label">Purpose of visit<span>*</span></label>
+                    <div class="col-sm-3">
+                        <select name="account" class="form-control m-b">
+                            <option>Business</option>
+                            <option>Transit</option>
+                            <option>Official</option>
+                            <option>Employment</option>
+                            <option>Education</option>
+                            <option>Conference</option>
+                            <option>Visit</option>
+                        </select>
+                    </div>
+                    <label class="col-sm-3 control-label">Next Destination<span>*</span></label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-top:20px">
+                    <label class="col-sm-3 control-label">Contact/Phone Number(in India)<span>*</span></label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" />
+                    </div>
+                    <label class="col-sm-3 control-label">Contact/Phone Number(in Country)<span>*</span></label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group" style="margin-top:20px">
+                    <label class="col-sm-3 control-label">In Country where permanently residing<span>*</span></label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" />
+                    </div>
+                   
+                </div>
+            @*</fieldset>
+
+            <fieldset>
+                <legend>Persional Information</legend>*@
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Hotel/Place of stay Name<span>*</span></label>
+                    <div class="col-sm-3">
+                        <input type="text" row="4" class="form-control" />
+                    </div>
+                    <label class="col-sm-3 control-label">Hotel/Place of stay Address<span></span></label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Tel/Mobile No. of th Hotel/Place of stay<span>*</span></label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" />
+                    </div>                    
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Name(as given in passport)<span>*</span></label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" />
+                    </div>     
+                    <label class="col-sm-3 control-label">Address in country where residing permanently<span>*</span></label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" />
+                    </div>                    
+                </div>
+
+                <div class="form-group" style="margin-top:20px">                   
+                    <label class="col-sm-3 control-label">Gender<span>*</span></label>
+                    <div class="col-sm-3">
+                        <label class="radio-inline c-radio">
+                            <input id="inlineradio1" type="radio" name="i-radio" value="option1" checked="checked">
+                            <span class="fa fa-circle"></span>Male
+                        </label>
+                        <label class="radio-inline c-radio">
+                            <input id="inlineradio1" type="radio" name="i-radio" value="option1" checked="checked">
+                            <span class="fa fa-circle"></span>Female
+                        </label>
+                        <label class="radio-inline c-radio">
+                            <input id="inlineradio1" type="radio" name="i-radio" value="option1" checked="checked">
+                            <span class="fa fa-circle"></span>Other
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-top:20px">
+                    <label class="col-sm-3 control-label">DOB<span>*</span></label>
+                    <div class="col-sm-3">
+                        <input type="date" class="form-control" />
+                    </div>
+                    <label class="col-sm-3 control-label">Address reference in India<span>*</span></label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>               
+
+                <div class="form-group" style="margin-top:20px">
+                    <label class="col-sm-3 control-label">Passport Number<span>*</span></label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" />
+                    </div>
+                    <label class="col-sm-3 control-label">Place of Issue of Passport<span>*</span></label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group" style="margin-top:20px">
+                    <label class="col-sm-3 control-label">Passport Issue Date<span>*</span></label>
+                    <div class="col-sm-3">
+                        <input type="date" class="form-control" />
+                    </div>
+                    <label class="col-sm-3 control-label">Passport valid till<span>*</span></label>
+                    <div class="col-sm-3">
+                        <input type="date" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-top:20px">
+                    <label class="col-sm-3 control-label">Visa Number<span>*</span></label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" />
+                    </div>
+                    <label class="col-sm-3 control-label">Visa Issue Date<span>*</span></label>
+                    <div class="col-sm-3">
+                        <input type="date" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-top:20px">
+                    <label class="col-sm-3 control-label">Visa Valid till<span>*</span></label>
+                    <div class="col-sm-3">
+                        <input type="date" class="form-control" />
+                    </div>
+                    <label class="col-sm-3 control-label">Visa Type<span>*</span></label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+
+
+                <div class="form-group" style="margin-top:20px">
+                    <label class="col-sm-3 control-label">Place of Issue<span>*</span></label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" />
+                    </div>
+                    <label class="col-sm-3 control-label">Visa Type<span>*</span></label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-top:20px">
+                    <label class="col-sm-3 control-label">Nationality<span>*</span></label>
+                    <div class="col-sm-3">
+                        <select name="account" class="form-control m-b">
+                            <option>Indian</option>
+                            <option>Option 2</option>
+                            <option>Option 3</option>
+                            <option>Option 4</option>
+                        </select>
+                    </div>
+                    </div>
+
+</fieldset>
+        
+
+            <button type="button" class="mb-sm btn btn-green">Submit</button>
+            <button type="button" class="mb-sm btn btn-danger">Reset</button>
+        </form>
+    </div>
+</div>
+<!-- END panel-->
+
+@section Styles {
+
+    <link href="~/Vendor/bootstrap-select.min.css" rel="stylesheet" />
+}
+@section Scripts {
+    <script src="~/Vendor/bootstrap-select.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('.selectpicker').selectpicker();
+        });
+    </script>
+
+}

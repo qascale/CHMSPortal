@@ -1,0 +1,87 @@
+﻿
+@{
+    ViewBag.Title = "RoomAllotment";
+}
+<h3>
+    Room Allotment
+</h3>
+<!-- START panel-->
+<div class="panel panel-default">
+    @*<div class="panel-heading">Form elements</div>*@
+    <div class="panel-body">
+        <form method="get" action="/" class="form-horizontal">
+            <fieldset>
+                <legend>Guest Reservation Detail</legend>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Reservation ID</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" value="@ViewBag.ReservationID" readonly="readonly" />
+                    </div>
+                    <label class="col-sm-2 control-label">GuestName</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" value="@ViewBag.GuestName" readonly="readonly"/>
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-top:20px">
+                    <label class="col-sm-2 control-label">Aadhar Number</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" value="@ViewBag.Aadharno" readonly="readonly"/>
+                    </div>
+                    <label class="col-sm-2 control-label">Mobile Number</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" value="@ViewBag.mobile" readonly="readonly"/>
+                    </div>
+                </div><br />
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Email Address</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" value="@ViewBag.MailPersonal" readonly="readonly"/>
+                    </div>
+                    <label class="col-sm-2 control-label">Room Type</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" value="@ViewBag.roomtype" readonly="readonly" />
+                    </div>
+                </div><br />
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Select Room Number</label>
+                    <div class="col-sm-4">
+                        <select name="account" class="form-control m-b">
+                            <option>101</option>
+                            <option>202</option>
+                            <option>205</option>
+                            <option>209</option>
+                        </select>
+                        @*@Html.DropDownListFor(model => model.GuestTypeID, ViewData["GuestTypeID"] as List<SelectListItem>, "All", new { @class = "form-control", id = "RoomType1", @name = "RoomType1" })*@
+                    </div>
+                    <label class="col-sm-2 control-label">Remark</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control"  />
+                    </div>
+                </div>
+            </fieldset>
+            <div class="col-md-8"></div>
+            <div class="col-md-offset-2 col-md-2">
+                <button type="button" class="mb-sm btn btn-green">Submit</button>
+                <button type="button" class="mb-sm btn btn-danger">Reset</button>
+                </div>
+</form>
+    </div>
+</div>
+<!-- END panel-->
+
+@section Styles {
+
+    <link href="~/Vendor/bootstrap-select.min.css" rel="stylesheet" />
+}
+@section Scripts {
+    <script src="~/Vendor/bootstrap-select.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('.selectpicker').selectpicker();
+        });
+    </script>
+
+}
+
+

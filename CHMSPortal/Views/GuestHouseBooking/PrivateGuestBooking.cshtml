@@ -1,0 +1,407 @@
+﻿@model Angle.Models.PrivateGuestViewModel
+@{
+    TempData["Title"] = "PrivateGuestBooking";
+
+}
+@if (Convert.ToString(TempData["TheResult"]) == "yes")
+{
+    <div class="alert alert-info">
+        <strong>Thank you!</strong> Your query has been submitted.
+    </div>
+}
+<h3>
+    Private Guest
+</h3>
+
+@using (Html.BeginForm("PrivateGuestBooking", "GuestHouseBooking", FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.Hidden("SelectedRoomTypeName",Model.RoomTypeName_Eng)
+
+    <div class="alert alert-info">
+        <strong>Mandatory Fields are marked with *</strong> .
+    </div>
+        <!-- START panel-->
+
+    <div class="panel panel-default">
+        @*<div class="panel-heading">Form elements</div>*@
+        <div class="panel-body">
+            <form method="get" action="/" class="form-horizontal">
+                <fieldset>
+                    <legend>Aadhar Inforamtion</legend>
+                    <div class="form-group">
+
+                        <label class="col-sm-2 control-label">Photo<span>*</span></label>
+                        <div class="col-sm-3">
+                            <img src='data:image/png;base64,@Model.Image' /> 
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">SSO ID<span>*</span></label>
+                        <div class="col-sm-3">
+                            <input type="text" required="required" name="SSOID" class="form-control" @Model.SSOID />
+                        </div>
+                        <label class="col-sm-2 control-label">Name<span>*</span></label>
+                        <div class="col-sm-3">
+                            <input type="text" required="required" name="Name" class="form-control" @Model.Name />
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-top:20px">
+                        <label class="col-sm-2 control-label">Mobile Number<span>*</span></label>
+                        <div class="col-sm-3">
+                            <input type="number" required="required" inputmode="numeric" maxlength="12" name="MobileNumber" class="form-control" @Model.MobileNumber />
+                        </div>
+                        <label class="col-sm-2 control-label">Date Of Birth<span>*</span></label>
+                        <div class="col-sm-3">
+                            <input type="date" required="required" name="DOB" class="form-control" @Model.DOB />
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-top:20px">
+
+                        <label class="col-sm-2 control-label">Gender<span>*</span></label>
+                        <div class="col-sm-3">
+
+                            <label class="radio-inline c-radio">
+                                <input type="radio" name="Gender" value="Male" checked="checked" @Model.Gender>
+                                <span class="fa fa-circle"></span>Male
+                            </label>
+                            @* male
+                                   @Html.RadioButtonFor(model => model.Gender,"Male")
+                                Female
+                                   @Html.RadioButtonFor(model => model.Gender, "Female")
+                                  Others
+                                   @Html.RadioButtonFor(model => model.Gender, "Others")*@
+                            <label class="radio-inline c-radio">
+                                <input type="radio" name="Gender" value="Female" @Model.Gender>
+                                <span class="fa fa-circle"></span>Female
+                            </label>
+                            <label class="radio-inline c-radio">
+                                <input type="radio" name="Gender" value="Others" @Model.Gender>
+                                <span class="fa fa-circle"></span>Other
+                            </label>
+
+                        </div>
+
+                        <label class="col-sm-2 control-label">Email<span>*</span></label>
+                        <div class="col-sm-3">
+                            <input type="email" name="EmailID" class="form-control" @Model.EmailID />
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group" style="margin-top:20px">
+                        <label class="col-sm-2 control-label">Postal Address<span>*</span></label>
+                        <div class="col-sm-3">
+                            <input type="text" required="required" name="PostalAddress" class="form-control" @Model.PostalAddress />
+                        </div>
+                        <label class="col-sm-2 control-label">Postal Code<span>*</span></label>
+                        <div class="col-sm-3">
+                            <input type="text" required="required" name="PostalCode" inputmode="numeric" class="form-control" @Model.PostalCode />
+                        </div>
+                    </div>
+                    <div class="form-group" style="margin-top:20px">
+                        <label class="col-sm-2 control-label">City<span>*</span></label>
+                        <div class="col-sm-3">
+                            <input type="text" required="required" name="City" class="form-control" @Model.City />
+                        </div>
+                        <label class="col-sm-2 control-label">State<span>*</span></label>
+                        <div class="col-sm-3">
+                            <input type="text" required="required" name="State" class="form-control" @Model.State />
+                        </div>
+                    </div>
+                    <div class="form-group" style="margin-top:20px">
+                        <label class="col-sm-2 control-label">Bhamashah ID<span>*</span></label>
+                        <div class="col-sm-3">
+                            <input type="text" required="required" name="BhamashahID" class="form-control" @Model.BhamashahID />
+                        </div>
+                        <label class="col-sm-2 control-label">Aadhar ID<span>*</span></label>
+                        <div class="col-sm-3">
+                            <input type="text" required="required" name="AadharID" class="form-control" @Model.AadharID />
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Booking Detail</legend>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Arrival Date<span>*</span></label>
+                        <div class="col-sm-3">
+                            <input type="date" required="required" name="ArrivalDate" class="form-control" @Model.ArrivalDate />
+                        </div>
+                        <label class="col-sm-2 control-label">Departure Date<span>*</span></label>
+                        <div class="col-sm-3">
+                            <input type="date" required="required" name="DepartureDate" class="form-control" @Model.DepartureDate />
+                        </div>
+                    </div>
+
+                    @*// @Html.BootstrapTimePicker("SelectedTime").ContainerClass("TimePickerWidth");*@
+                    <div class="form-group" style="margin-top:20px">
+                        <label class="col-sm-2 control-label">Arrival Time<span>*</span></label>
+                        <div class="col-sm-3">
+                            @*<input id="start"  required="required" value="8:00 AM" style="width: 100%;" name="Arrivalime" @Model.Arrivalime  />*@
+                            <input name="Arrivalime" required="required" value="04:35" class="form-control timepicker " @Model.Arrivalime />
+                        </div>
+                        <label class="col-sm-2 control-label">Departure Time<span>*</span></label>
+                        <div class="col-sm-3">
+                            @*<input id="end"  required="required" value="8:30 AM" style="width: 100%;" name="Arrivalime" @Model.Arrivalime />*@
+                            <input type="text" name="DepartureTime" required="required" value="10:00 AM" class="form-control  " @Model.DepartureTime />
+                        </div>
+
+                    </div>
+                    @*<div class="form-group" style="margin-top:20px">
+                            <label class="col-sm-2 control-label">Arrival Time<span>*</span></label>
+                            <div class="col-sm-4">
+                                <input required="required" name="ArrivalTime" class="form-control" @Model.Arrivalime id="timepicker" />
+                            </div>
+                            <label class="col-sm-2 control-label">Departure Time<span>*</span></label>
+                            <div class="col-sm-4">
+                                <input required="required" name="DepartureTime" class="form-control" @Model.DepartureTime id="timepicker" />
+                            </div>
+                        </div>*@
+                    <div class="form-group" style="margin-top:20px">
+                        <label class="col-sm-2 control-label">Purpose Of Travel<span>*</span></label>
+                        <div class="col-sm-3">
+                            <input type="text" required="required" name="PurposeOfTravel" class="form-control" @Model.PurposeOfTravel />
+                        </div>
+                        <label class="col-sm-2 control-label">Select Room Type<span>*</span></label>
+                        <div class="col-sm-3">                          
+                            @*<input type="" required="required" name="PurposeOfTravel" class="form-control" @Model.PurposeOfTravel />*@
+                            @*@Html.DropDownListFor(x => x.RoomType, new SelectList(new[] { "Choose Type" }))*@
+
+                            @Html.DropDownListFor(x => x.RoomTypeID, new SelectList(Model.RoomType, "Value", "Text"),"Select Type",new { @class = "form-control",@id = "SelID" })
+
+                            @*@Html.DropDownListFor(model => model.RoomType, (IEnumerable<SelectListItem>)TempData["RoomTypes"], "--Select--")*@
+                        </div>
+                    </div>
+                   
+                </fieldset>
+
+                <fieldset>
+                    <legend>Personal Information</legend>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">First Name<span>*</span></label>
+                        <div class="col-sm-3">
+                            <input type="text" required="required" name="Personal_FirstName" class="form-control" @Model.Personal_FirstName />
+                        </div>
+                        <label class="col-sm-2 control-label">Middle Name<span></span></label>
+                        <div class="col-sm-3">
+                            <input type="text"  name="Personl_MiddleName" class="form-control" @Model.Personl_MiddleName />
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-group" style="margin-top:20px">
+                        <label class="col-sm-2 control-label">Last Name<span>*</span></label>
+                        <div class="col-sm-3">
+                            <input type="text" required="required" name="Personal_LastName" class="form-control" @Model.Personal_LastName />
+                        </div>
+                        <label class="col-sm-2 control-label">Gender<span>*</span></label>
+                        <div class="col-sm-3">
+                            @*<label class="radio-inline c-radio">
+                                    <input type="radio" name="Gender" value="Female" @Model.Gender>
+                                    <span class="fa fa-circle"></span>Female
+                                </label>*@
+
+
+                            <label class="radio-inline c-radio">
+                                <input type="radio" name="Personal_Gender" value="Male" checked="checked" @Model.Personal_Gender>
+                                <span class="fa fa-circle"></span>Male
+                            </label>
+                            <label class="radio-inline c-radio">
+                                <input type="radio" name="Personal_Gender" value="Female" @Model.Personal_Gender>
+                                <span class="fa fa-circle"></span>Female
+                            </label>
+                            <label class="radio-inline c-radio">
+                                <input type="radio" name="Personal_Gender" value="Others" @Model.Personal_Gender>
+                                <span class="fa fa-circle"></span>Other
+                            </label>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-group" style="margin-top:20px">
+                        <label class="col-sm-2 control-label">DOB<span>*</span></label>
+                        <div class="col-sm-3">
+                            <input type="date" required="required" name="Personal_DOB" class="form-control" @Model.Personal_DOB />
+                        </div>
+                        <label class="col-sm-2 control-label">Marital Status<span>*</span></label>
+                        <div class="col-sm-3">
+                            <select value="Select One" name="Personal_MaritalStatus" class="form-control m-b">
+                                <option value="Married" name="Personal_MaritalStatus" @Model.Personal_MaritalStatus>Married</option>
+                                <option value="Unmarried" name="Personal_MaritalStatus" @Model.Personal_MaritalStatus>Unmarried</option>
+
+                            </select>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-group" style="margin-top:20px">
+                        <label class="col-sm-2 control-label">Category<span>*</span></label>
+                        <div class="col-sm-3">
+                            <select value="Select One" name="Personal_Category" class="form-control m-b">
+                                <option selected value="General" name="Personal_Category" @Model.Personal_Category>General</option>
+                                <option value="OBC" name="Personal_Category" @Model.Personal_Category>OBC</option>
+                                <option value="ST" name="Personal_Category" @Model.Personal_Category>ST</option>
+                                <option value="SC" name="Personal_Category" @Model.Personal_Category>SC</option>
+
+                            </select>
+                        </div>
+                        <label class="col-sm-2 control-label">Religion<span>*</span></label>
+                        <div class="col-sm-3">
+                            <select value="Select One" name="Personal_Religion" class="form-control m-b">
+                                <option selected value="Hindu" name="Personal_Religion" @Model.Personal_Religion>Hindu</option>
+                                <option value="Muslim" name="Personal_Religion" @Model.Personal_Religion>Muslim</option>
+                                <option value="Christian" name="Personal_Religion" @Model.Personal_Religion>Christian</option>
+                                <option value="Sikh" name="Personal_Religion" @Model.Personal_Religion>Sikh</option>
+                                <option value="Isai" name="Personal_Religion" @Model.Personal_Religion>Isai</option>
+                                <option value="Others" name="Personal_Religion" @Model.Personal_Religion>Others</option>
+                            </select>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-group" style="margin-top:20px">
+                        <label class="col-sm-2 control-label">Email<span>*</span></label>
+                        <div class="col-sm-3">
+                            <input type="email" required="required" name="Personal_EmailID" class="form-control" @Model.Personal_EmailID />
+                        </div>
+                        <label class="col-sm-2 control-label">Mobile Number<span>*</span></label>
+                        <div class="col-sm-3">
+                            <input type="number" required="required" name="Personal_MobileNumber" maxlength="13" inputmode="numeric" class="form-control" @Model.Personal_MobileNumber />
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Office Details</legend>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">DepartmentName<span>*</span></label>
+                        <div class="col-sm-3">
+                            <input type="text" required="required" name="OfficeDepartmentName" class="form-control" @Model.OfficeDepartmentName />
+                        </div>
+                        <label class="col-sm-2 control-label">Division<span>*</span></label>
+                        <div class="col-sm-3">
+                            <input type="text" required="required" name="OfficeDivision" class="form-control" @Model.OfficeDivision />
+                        </div>
+                        @*<label class="col-sm-2 control-label">Area Type<span></span></label>
+                            <div class="col-sm-4">
+                                <label class="radio-inline c-radio">
+                                    <input id="inlineradio1" type="radio" name="i-radio" value="option1" checked="checked">
+                                    <span class="fa fa-circle"></span>Rural
+                                </label>
+                                <label class="radio-inline c-radio">
+                                    <input id="inlineradio1" type="radio" name="i-radio" value="option1" checked="checked">
+                                    <span class="fa fa-circle"></span>Urban
+                                </label>
+                            </div>*@
+                    </div>
+
+                    <div class="form-group" style="margin-top:20px">
+
+                        <label class="col-sm-2 control-label">Designation<span>*</span></label>
+                        <div class="col-sm-3">
+                            <input type="text" required="required" name="OfficeDesignation" class="form-control" @Model.OfficeDesignation />
+                        </div>
+                        <label class="col-sm-2 control-label">Existing Grade Pay<span>*</span></label>
+                        <div class="col-sm-3">
+                            <input type="number" required="required" name="OfficeExixtingGradepay" inputmode="numeric" class="form-control" @Model.OfficeExixtingGradepay />
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-top:20px">
+
+                        <label class="col-sm-2 control-label">Grade Pay<span>*</span></label>
+                        <div class="col-sm-3">
+                            <input type="number" required="required" name="OfficeGradePay" inputmode="numeric" class="form-control" @Model.OfficeGradepay />
+                        </div>
+                        <label class="col-sm-2 control-label">Posting Place<span>*</span></label>
+                        <div class="col-sm-3">
+                            <input type="text" required="required" name="OfficePostingPlace" class="form-control" @Model.OfficePostingPlace />
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-top:20px">
+
+                        <label class="col-sm-2 control-label">State<span>*</span></label>
+                        <div class="col-sm-3">
+                            <input type="text" required="required" name="OfficeState" class="form-control" @Model.OfficeState />
+                        </div>
+                        <label class="col-sm-2 control-label">City<span>*</span></label>
+                        <div class="col-sm-3">
+                            <input type="text" name="OfficeCity" required="required" class="form-control" @Model.OfficeCity />
+                        </div>
+                    </div>
+                    <legend>Other Details</legend>
+                    <div class="form-group" style="margin-top:20px">
+                        <label class="col-sm-2 control-label">Extra Bed<span>*</span></label>
+                        <div class="col-sm-3">
+                            <select value="Select One" name="ExtraBed" class="form-control m-b">
+                                <option value="Yes" name="ExtraBed" @Model.ExtraBed>Yes</option>
+                                <option value="No" name="ExtraBed" @Model.ExtraBed>No</option>
+                            </select>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-group" style="margin-top:20px">
+                        <label class="col-sm-2 control-label">Upload Official Documnets<span>*</span></label>
+                        <div class="col-sm-3">
+                            <input type="file" required="required" name="Documents_OfficialForm" class="form-control" @Model.Documents_OfficialForm />
+                        </div>
+                        <label class="col-sm-2 control-label">Upload Order Documents<span></span></label>
+                        <div class="col-sm-3">
+                            <input type="file" name="Documents_OrderForm" class="form-control" @Model.Documents_OrderForm />
+                        </div>
+
+                    </div>
+                    <div class="form-group" style="margin-top:20px">
+                        <label class="col-sm-2 control-label">Upload C-Form<span></span></label>
+                        <div class="col-sm-3">
+                            <input type="file" name="Documents_CForm" class="form-control" @Model.Documents_CForm />
+                        </div>
+                    </div>
+                </fieldset>
+
+
+
+                <div class="form-group"><div class="col-md-offset-2 col-md-5"></div>
+    <div class="col-md-offset-2 col-md-3">
+        <input type="submit" class="btn btn-warning" />
+
+
+        <input type="button" value="Cancel" class="btn btn-danger" />
+
+    </div>
+</div>
+
+            </form>
+        </div>
+    </div>
+    <!-- END panel-->
+    @section Styles {
+
+        @*<link href="~/Vendor/bootstrap-select.min.css" rel="stylesheet" />*@
+
+    }
+}
+@section Scripts {
+
+   
+   <script>
+       $(document).ready(function () {
+           $("#SelID").change(function (evt) {
+               $("#SelectedRoomTypeName").val($("#SelID option:selected").text().trim());
+           });
+       });
+    </script>
+
+
+    @Scripts.Render("~/bundles/parsley")
+    @Scripts.Render("~/bundles/datatables")
+    @Scripts.Render("~/bundles/demoDatatable")
+    @Styles.Render("~/bundles/datatablesCss")
+    @*@Styles.Render("~/Vendor/bootstrap-select.min.js")*@
+
+  
+
+
+   
+}

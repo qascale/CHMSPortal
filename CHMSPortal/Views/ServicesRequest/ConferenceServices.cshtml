@@ -1,0 +1,83 @@
+﻿
+@{
+    ViewBag.Title = "ConferencehallBooking";
+}
+
+<h3>
+    Conference Hall Booking
+    <small>This form only Conference Hall Booking</small>
+</h3>
+<!-- START panel-->
+<div class="panel panel-default">
+    @*<div class="panel-heading">Form elements</div>*@
+    <div class="panel-body">
+        <form method="get" action="/" class="form-horizontal">
+            <fieldset>
+                <legend>Conference Hall Booking</legend>
+                <div class="form-group">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Guest House<span>*</span></label>
+                        <div class="col-sm-4">
+                            <select name="account" class="form-control m-b">
+                                <option>Option 1</option>
+                                <option>Option 2</option>
+                                <option>Option 3</option>
+                                <option>Option 4</option>
+                                <option>Option 5</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group" style="margin:20px">
+                    <label class="col-sm-2 control-label">Purpose<span>*</span></label>
+                    <div class="col-sm-4">
+                        <select name="account" class="form-control m-b">
+                            <option>Oficial</option>
+                            <option>Private</option>
+                            <option>Other</option>                           
+                        </select>
+                    </div>
+                    <label class="col-sm-2 control-label">Guest Type<span>*</span></label>
+                    <div class="col-sm-4">
+                        <select name="account" class="form-control m-b">
+                            <option>Govt. Employee</option>
+                            <option>Public Representative</option>
+                            <option>Foreign Guest</option>
+                            <option>State Guest</option>
+                            <option>Privte</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin:20px">
+                    <label class="col-sm-2 control-label">Arrival Date<span>*</span></label>
+                    <div class="col-sm-4">
+                        <input type="date" class="form-control" />
+                    </div>
+                    <label class="col-sm-2 control-label">Departure Date<span>*</span></label>
+                    <div class="col-sm-4">
+                        <input type="date" class="form-control" />
+                    </div>
+                </div>
+            </fieldset>  
+            <button type="button" class="mb-sm btn btn-green">Submit</button>
+            <button type="button" class="mb-sm btn btn-danger">Reset</button>
+        </form>
+    </div>
+</div>
+<!-- END panel-->
+
+@section Styles {
+
+    <link href="~/Vendor/bootstrap-select.min.css" rel="stylesheet" />
+}
+@section Scripts {
+    <script src="~/Vendor/bootstrap-select.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('.selectpicker').selectpicker();
+        });
+    </script>
+
+}
+

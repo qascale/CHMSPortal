@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Bootstrap Admin App + jQuery">
+    <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
+    <title>Eelction Image modification</title>
+    <!-- =============== VENDOR STYLES ===============-->
+    @Styles.Render("~/bundles/fontawesome")
+    @Styles.Render("~/bundles/simpleLineIcons")
+    @Styles.Render("~/bundles/animatecss")
+    @Styles.Render("~/bundles/whirl")
+    <!-- =============== PAGE VENDOR STYLES =============== -->
+    @*@if (IsSectionDefined("Styles"))
+    {@RenderSection("Styles", required: false)}*@
+    <!-- =============== BOOTSTRAP STYLES ===============-->
+    <link href="@Styles.Url("~/Content/app/css/bootstrap.css")" rel="stylesheet" type="text/css" id="bscss" />
+    <link href="@Styles.Url("~/Vendor/fontawesome/css/font-awesome.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Styles.Url("~/Vendor/simple-line-icons/css/simple-line-icons.css")" rel="stylesheet" type="text/css" />
+    <!-- =============== APP STYLES ===============-->
+    <link href="@Styles.Url("~/Content/app/css/app.css")" rel="stylesheet" type="text/css" id="maincss" />
+    <link href="@Styles.Url("~/Content/mvc-override.css")" rel="stylesheet" type="text/css" />
+
+</head>
+<body class="layout-h">
+    @*@if (Session["GID"] == null && Session["GID"] == "")
+    {
+        Response.Redirect("~/Shared/Login");
+    }*@
+ 
+    <div class="wrapper">
+        <!-- top navbar-->
+        <header class="topnavbar-wrapper">
+            @Html.Partial("_TopNavbarHorizontal")
+        </header>
+        <section>         
+            <div class="wrapper" style="border-top:0px none;">
+                <div class=" col-lg-12 block-center">
+                    <div class="content-wrapper">
+                      @using (Html.BeginForm("ChmsLanding", "CHMS", FormMethod.Post, new { @class = "form-horizontal" }))
+                      {
+                        @Html.AntiForgeryToken();
+                        <div class="panel panel-default">
+                            @*<div class="panel-heading">Form elements</div>*@
+                            <div class="panel-body">
+                                <form method="get" action="/" class="form-horizontal">
+                                    <fieldset>
+                                        <legend></legend>
+                                        <div class="form-group">
+                                            <div class="col-sm-2"></div>
+                                            <label class="col-sm-2 control-label">User Type <span>*</span></label>
+                                            <div class="col-sm-4">
+
+                                                @Html.DropDownList("ListItem", (IEnumerable<SelectListItem>)ViewBag.ListItem, new { @class = "form-control m-b" })
+
+                                                @*<select name="account" class="form-control m-b">
+                                                        <option>Guest</option>
+                                                        <option>Admin</option>
+                                                    </select>*@
+                                            </div>
+                                        </div>
+                                        <br />
+                                    </fieldset>
+                                    <div class="">
+                                        <div class="col-sm-5"></div>
+                                        <a href="@Url.Action("Dashboard", "Reservation")" title="" style="color:white" class="mb-sm btn btn-green">
+                                            <span>Submit</span>
+                                        </a>
+                                        @*<input type="submit" value="Back To Sso" id="Submit" class="btn btn-default" onclick="location.href='@Url.Action("ChmsLanding", "CHMS")'" />*@
+                                        <button type="button" class="mb-sm btn btn-danger">Cancle</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                      }
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            @Html.Partial("_Footer")
+        </footer>
+    </div>
+    @*@if (IsSectionDefined("BodyArea"))
+    {
+        @RenderSection("BodyArea", required: false)
+    }*@
+    <!-- =============== VENDOR SCRIPTS ===============-->
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/storage")
+    @Scripts.Render("~/bundles/jqueryEasing")
+    @Scripts.Render("~/bundles/animo")
+    @Scripts.Render("~/bundles/slimscroll")
+    @Scripts.Render("~/bundles/screenfull")
+    @Scripts.Render("~/bundles/localize")
+    @Scripts.Render("~/bundles/demoRTL")
+    <!-- =============== PAGE VENDOR SCRIPTS ===============-->
+    @RenderSection("scripts", required: false)
+    <!-- =============== APP SCRIPTS ===============-->
+    @Scripts.Render("~/bundles/Angle")
+</body>
+</html>

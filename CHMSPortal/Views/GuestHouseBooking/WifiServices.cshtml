@@ -1,0 +1,122 @@
+﻿
+@{
+    ViewBag.Title = "Wifi Services";
+}
+
+<h3>
+   Request For Wifi Services
+    @*<small>This form only Conference Hall Booking</small>*@
+</h3>
+<!-- START panel-->
+<div class="panel panel-default">
+    @*<div class="panel-heading">Form elements</div>*@
+    <div class="panel-body">
+        <form method="get" action="/" class="form-horizontal">
+            <fieldset>
+                <legend>Request For Wifi Service</legend>
+                <div class="form-group">
+                    <div class="col-sm-4">
+                        </div>
+                    <div class="col-sm-4">
+                    </div>
+                        <div class="col-sm-4"><div>
+                            <label  class="control-label">Exist<span>*</span></label>
+                            <input id="Checkbox1" type="checkbox" />
+                            <label  class="control-label">Non-Exist<span>*</span></label>
+                            <input id="Checkbox1" type="checkbox" />
+                        </div>
+                    <div class="col-sm-4">
+                    </div>
+                    </div>
+              </div>
+                    <div class="form-group">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Guest House<span>*</span></label>
+                            <div class="col-sm-4">
+                                <select name="account" class="form-control m-b">
+                                    <option>Option 1</option>
+                                    <option>Option 2</option>
+                                    <option>Option 3</option>
+                                    <option>Option 4</option>
+                                    <option>Option 5</option>
+                                </select>
+                            </div>
+                            <label class="col-sm-2 control-label">Guest Name<span>*</span></label>
+                            <div class="col-sm-4">
+                                <input id="txtGuestName" type="text" class="form-control" />
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group" style="margin:20px">
+                        <label class="col-sm-2 control-label">Mobile Number<span>*</span></label>
+                        <div class="col-sm-4">
+                            <input id="txtmobileNumber" type="text" class="form-control" />
+                        </div>
+                        <label class="col-sm-2 control-label">Email<span>*</span></label>
+                        <div class="col-sm-4">
+                            <input id="txtEmail" type="text" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin:20px">
+                        <label class="col-sm-2 control-label">From Date<span>*</span></label>
+                        <div class="col-sm-4">
+                            <input type="date" class="form-control" />
+                        </div>
+                        <label class="col-sm-2 control-label">To Date<span>*</span></label>
+                        <div class="col-sm-4">
+                            <input type="date" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Schedule Time<span></span></label>
+                    </div>
+                    <div class="form-group">
+
+                        <label class="col-sm-2 control-label">Time<span>*</span></label>
+                        <div class="col-sm-4">
+                            <input type="time" class="form-control" />
+                        </div>
+                        <label class="col-sm-2 control-label">Items<span>*</span></label>
+                        <div class="col-sm-4">
+                            <select name="Items" class="form-control m-b">
+                                <option>Option 1</option>
+                                <option>Option 2</option>
+                                <option>Option 3</option>
+                                <option>Option 4</option>
+                                <option>Option 5</option>
+                            </select>
+                        </div>
+
+
+
+
+                    </div>
+</fieldset>
+            <button type="button" class="mb-sm btn btn-green ">Submit</button>
+            <button type="button" class="mb-sm btn btn-danger">Reset</button>
+        </form>
+    </div>
+</div>
+<!-- END panel-->
+
+@section Styles {
+
+    <link href="~/Vendor/bootstrap-select.min.css" rel="stylesheet" />
+}
+@section Scripts {
+    <script src="~/Vendor/bootstrap-select.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('.selectpicker').selectpicker();
+        });
+    </script>
+
+}
+
+
+
+
+

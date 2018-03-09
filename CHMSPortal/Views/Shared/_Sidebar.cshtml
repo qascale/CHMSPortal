@@ -1,0 +1,123 @@
+
+<nav class="sidebar" data-sidebar-anyclick-close="">
+    <!-- START sidebar nav-->
+    <ul class="nav">
+        <li class="nav-heading">
+            <span>Main Navigation</span>
+        </li>
+        <li class="@Html.isActive("Dashboard", "Reservation")">
+            <a href="@Url.Action("Dashboard", "Reservation")" title="Dashboard">
+                <em class="fa fa-dashboard"></em>
+                <span data-localize="sidebar.nav.DASHBOARD">Dashboard</span>
+            </a>
+        </li>
+
+        <li class="@Html.isActive(controller: "GuestManagement")">
+            <a href="#dashboard" title="Dashboard" data-toggle="collapse">
+                <em class="fa fa-dashboard"></em>
+                <span data-localize="sidebar.nav.Guest Management">Guest Management</span>
+            </a>
+            <ul id="dashboard" class="nav sidebar-subnav collapse">
+                <li class="@Html.isActive("GuestType", "GuestType")">
+                    <a href="@Url.Action("GuestType", "GuestType")" title="Pantry Services ">
+                        <em class="fa fa-arrow-circle-o-right"></em>
+                        <span data-localize="sidebar.nav.Guest Management">Booking Request</span>
+                    </a>
+                    @* <ul id="dashboard1" class="nav sidebar-subnav collapse">
+                            <li class="sidebar-subnav-header">Booking Request</li>
+                            <li class="@Html.isActive("GuestType", "GuestType")">
+
+                                <a href="@Url.Action("GuestType", "GuestType")" title="Pantry Services ">
+                                    <span>Booking Request Form</span>
+                                </a>
+                                </li>
+                        <li class="@Html.isActive("GuestHouseBooking", "GovtBooking")">
+                            <a href="@Url.Action("GovtBooking", "GuestHouseBooking")" title="Conference Services">
+                                <span>Govt Booking Form</span>
+                            </a>
+                        </li>
+                        <li class="@Html.isActive("GuestHouseBooking", "PrivateBooking")">
+                            <a href="@Url.Action("PrivateBooking", "GuestHouseBooking")" title="Dining Services">
+                                <span>Private Booking Form</span>
+                            </a>
+                        </li>
+                        <li class="@Html.isActive("GuestHouseBooking", "ForeignGuest")">
+                            <a href="@Url.Action("ForeignGuest", "GuestHouseBooking")" title="Wifi Services">
+                                <span>Foregin Guest Form</span>
+                            </a>
+                        </li>
+                        <li class="@Html.isActive("GuestHouseBooking", "PublicRrepresentativeGuest")">
+                            <a href="@Url.Action("PublicRrepresentativeGuest", "GuestHouseBooking")" title="Wifi Services">
+                                <span>Public Representative</span>
+                            </a>
+                        </li>
+                        <li class="@Html.isActive("GuestHouseBooking", "TransfredGuest")">
+                            <a href="@Url.Action("TransfredGuest", "GuestHouseBooking")" title="Wifi Services">
+                                <span>Transferred Form</span>
+                            </a>
+                        </li>
+                                        </ul>*@
+                </li>
+                <li class="@Html.isActive("BookingHistory", "ReservationHistory")">
+                    <a href="@Url.Action("ReservationHistory", "BookingHistory")" title="Reservation History">
+                        <em class="fa fa-history"></em>
+                        <span>Booking History</span>
+                    </a>
+                </li>
+                <li class="@Html.isActive("BookingHistory", "ReservationHistory_Manager")">
+                    <a href="@Url.Action("ReservationHistory_Manager", "BookingHistory")" title="Reservation History">
+                        <em class="fa fa-history"></em>
+                        <span>Mannager Booking Status</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="@Html.isActive(controller: "ServicesRequest")">
+            <a href="#ServicesR" title="Dashboard" data-toggle="collapse">
+                <em class="fa fa-server"></em>
+                <span data-localize="sidebar.nav.Services Request">Services Request</span>
+            </a>
+
+            <ul id="ServicesR" class="nav sidebar-subnav collapse">
+                <li class="sidebar-subnav-header">Pantry Services</li>
+                <li class="@Html.isActive("GuestHouseBooking", "PantryServicesForm")">
+                    <a href="@Url.Action("PantryServicesForm", "GuestHouseBooking")" title="Pantry Services ">
+                        <span>Pantry Services</span>
+                    </a>
+                </li>
+                <li class="@Html.isActive("ServicesRequest", "ConferenceServices")">
+                    <a href="@Url.Action("ConferenceServices", "ServicesRequest")" title="Conference Services">
+                        <span>Conference Services</span>
+                    </a>
+                </li>
+                <li class="@Html.isActive("GuestHouseBooking", "DiningServices")">
+                    <a href="@Url.Action("DiningServices", "GuestHouseBooking")" title="Dining Services">
+                        <span>Dinning Services</span>
+                    </a>
+                </li>
+                <li class="@Html.isActive("GuestHouseBooking", "WifiServices")">
+                    <a href="@Url.Action("WifiServices", "GuestHouseBooking")" title="Wifi Services">
+                        <span>Wifi Services</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="@Html.isActive(controller: "GuestHouseBooking")">
+            <a href="@Url.Action("GuestHouseList", "GuestHouseBooking")" title="Guest House List">
+                <em class="fa fa-book"></em>
+                <span data-localize="sidebar.nav.Guest House Contact Details">Guest House Details</span>
+            </a>
+        </li>
+
+        <li class="@Html.isActive(controller: "GuestCheckOut")">
+            <a href="@Url.Action("Index", "GuestCheckOut")" title="Guest Check-Out Billing">
+                @*<div class="label label-info pull-right"></div>*@
+                <em class="fa fa-user-circle"></em>
+                <span data-localize="sidebar.nav.Guest Check-Out Billing">Guest Check-Out Billing</span>
+            </a>
+        </li>
+
+    </ul>
+    <!-- END sidebar nav-->
+</nav>

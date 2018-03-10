@@ -109,6 +109,7 @@ namespace DL.FrontOffice.Master
 
             //string CategoryId = "GT001";
             queryString = "SELECT* FROM ch_RvCategoryMapping INNER JOIN CH_RVCATEGORY_MASTER ON CH_RVCATEGORY_MASTER.CH_RV_CATEGORYID=ch_RvCategoryMapping.Ch_Rv_Categoryid WHERE ch_RvCategoryMapping.ISACTIVE=1 AND ch_RvCategoryMapping.ISDELETE=0 AND ch_RvCategoryMapping.ch_GUESTTYPEID='" + ID + "'";
+
             try
             {
                 List<BO_Inv.Master.GuestType> returnModel = new List<BO_Inv.Master.GuestType>();
@@ -132,8 +133,8 @@ namespace DL.FrontOffice.Master
                             {
                                 returnModel.Add(new BO_Inv.Master.GuestType()
                                 {
-                                    GuestCategoryID = dr["CH_RV_CATEGORYID"].ToString(),
-                                    GuestCategoryName = dr["CH_RV_CATEGORYNAME_ENG"].ToString()
+                                    GuestTypeID       = dr["CH_RV_CATEGORYID"].ToString(),
+                                    GuestTypeName_Eng = dr["CH_RV_CATEGORYNAME_ENG"].ToString()
                                 }
                                     );
                             }

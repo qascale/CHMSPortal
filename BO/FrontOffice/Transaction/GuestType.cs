@@ -28,7 +28,7 @@ namespace BO.FrontOffice.Transaction
 
         public List<SelectListItem> GuestTypeList { get; set; }
 
-        public int? GuestTypeID { get; set; }
+        public int?   GuestTypeID       { get; set; }
         public string GuestTypeName_Eng { get; set; }
     }
 }

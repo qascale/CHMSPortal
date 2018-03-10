@@ -26,15 +26,15 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Guest Category<span>*</span></label>
                     <div class="col-md-6">
-                        @Html.DropDownListFor(model => model.GuestCategoryID, ViewData["GuestCategoryID"] as List<SelectListItem>, "All", new { @class = "form-control", @name = "RoomType1", onchange = "document.forms[0].submit();" })
+                        @Html.DropDownListFor(model => model.GuestCategoryID, ViewData["GuestCategoryID"] as List<SelectListItem>, "All", new { @class = "form-control", @name = "RoomType1", onchange = "FillGuestType();" })
                     </div>
                 </div>
                 
                 <div class="form-group" id="dvPassport">
                     <label class="col-sm-2 control-label">Guest Type<span>*</span></label>
-                    <di.v class="col-md-6">
-                        @Html.DropDownListFor(model => model.GuestTypeID, ViewData["GuestTypeID"] as List<SelectListItem>, "All", new { @class = "form-control", id = "ddlGuestTypeID", @name = "RoomType1" })
-                    </di.v>
+                    <div class="col-md-6">
+                        @Html.DropDownListFor(model => model.GuestTypeID, ViewData["GuestTypeID"] as List<SelectListItem>, "All", new { @class = "form-control", id = "GuestCategoryID", @name = "GuestCategoryName" })
+                    </div>
                 </div>
 
                 <div class="form-group">
@@ -57,8 +57,6 @@
 
 
 <script type="text/javascript">
-
-
                 $(function () {
                     $("#ddlGuestCategoryID").change(function () {
                         if ($(this).val() != null) {
@@ -69,5 +67,30 @@
                     });
     });
 
+</script>
+
+
+
+<script>
+
+    function FillGuestType() {
+
+
+        var catId = $('#ddlGuestHouseID').val();
+        alert(catId); 
+        var ID = $('#GuestCategoryID').val();
+        alert(ID);
+
+        $.ajax({
+            url:'@Url.Action("GuestType", "GuestType")',
+            type: "Post",
+            dataType: "JSON",
+            data: { GuestCategoryID: ID, CategoryHouseId: catId },
+            success: function (cities) {
+                alert(cities);
+                debugger;
+            }
+        });
+    }
 </script>
 

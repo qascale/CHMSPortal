@@ -16,7 +16,11 @@ namespace BO
             GuestHouseID,
             GuesthouseName,
             GuestCategoryID,
-            GuestCategoryName
+            GuestCategoryName,
+            GuestTypeID,
+             GuestTypeName_Eng
+
+
         }
     }
 }

@@ -43,9 +43,10 @@ namespace CHMSPortal.Areas.FrontOffice.Models
         {
             BL_Inv.Master.GuestType obj = new BL_Inv.Master.GuestType();
             var list = obj.Get_Guesttype_Record(GuestCategoryID);
+           
             if (list != null)
             {
-                return new SelectList(list, DD_Column.GuestCategoryID.ToString(), DD_Column.GuestCategoryName.ToString(), defaultValue);
+                return new SelectList(list, DD_Column.GuestTypeID.ToString(), DD_Column.GuestTypeName_Eng.ToString(), defaultValue);
             }
             else
             {

@@ -21,19 +21,28 @@ namespace CHMSPortal.Controllers
         {
             BO_inv.Transaction.GuestType model1 = new BO_inv.Transaction.GuestType();
             ViewBag.GuestHouseID = FrontOffice_Function.Get_Master_GuestType(true);
+
             ViewBag.GuestCategoryID = FrontOffice_Function.Get_Master_GuestCityType(true);
+
             ViewBag.GuestTypeID = FrontOffice_Function.Get_masterGet_Category_Record(true);
+
             return View();
         }
         [HttpPost]
-        public ActionResult GuestType(string GuestCategoryID, string Next)
+        public ActionResult GuestType(string GuestCategoryID,string CategoryHouseId, string Next)
         {
+
+
             BO_inv.Transaction.GuestType model1 = new BO_inv.Transaction.GuestType();
             ViewBag.GuestHouseID = FrontOffice_Function.Get_Master_GuestType(true);
-            ViewBag.GuestCategoryID = FrontOffice_Function.Get_Master_GuestCityType(true);
+
+           ViewBag.GuestCategoryID = FrontOffice_Function.Get_Master_GuestCityType(true);
+
             if (GuestCategoryID.ToString() != null)
             {
                 ViewBag.GuestTypeID = FrontOffice_Function.Get_masterGet_Category_Record(true, GuestCategoryID);
+
+              
             }
             if (!string.IsNullOrEmpty(Next))
             {

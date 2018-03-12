@@ -136,7 +136,7 @@ namespace DL.FrontOffice.Master
                                     GuestTypeID       = dr["CH_RV_CATEGORYID"].ToString(),
                                     GuestTypeName_Eng = dr["CH_RV_CATEGORYNAME_ENG"].ToString()
                                 }
-                                    );
+                           );
                             }
                             return returnModel;
                         }
